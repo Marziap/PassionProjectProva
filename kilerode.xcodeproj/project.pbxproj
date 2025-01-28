@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		EFB3E5842D3EA99A0061352D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		EFB3E5842D3EA99A0061352D /* Exceptions for "kilerode" folder in "kilerode" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -26,7 +26,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		EFB3E56B2D3EA9980061352D /* kilerode */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (EFB3E5842D3EA99A0061352D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = kilerode; sourceTree = "<group>"; };
+		EFB3E56B2D3EA9980061352D /* kilerode */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EFB3E5842D3EA99A0061352D /* Exceptions for "kilerode" folder in "kilerode" target */,
+			);
+			path = kilerode;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +115,6 @@
 				};
 			};
 			buildConfigurationList = EFB3E5642D3EA9980061352D /* Build configuration list for PBXProject "kilerode" */;
-			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -116,6 +122,7 @@
 				Base,
 			);
 			mainGroup = EFB3E5602D3EA9980061352D;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = EFB3E56A2D3EA9980061352D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -154,6 +161,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kilerode/Preview Content\"";
+				DEVELOPMENT_TEAM = 8Z4W25U7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -179,6 +187,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kilerode/Preview Content\"";
+				DEVELOPMENT_TEAM = 8Z4W25U7W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";

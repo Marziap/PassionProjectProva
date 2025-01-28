@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import RealityKitContent
 
 @main
 struct kilerodeApp: App {
-
+    
     @State private var appModel = AppModel()
     @State private var avPlayerViewModel = AVPlayerViewModel()
-
+    
+    init() {
+        RealityKitContent.ObjComponent.registerComponent()
+        RealityKitContent.MeteorComponent.registerComponent()
+        //call this once to register the component
+    }
+    
     var body: some Scene {
         WindowGroup {
             if avPlayerViewModel.isPlaying {
@@ -22,7 +29,7 @@ struct kilerodeApp: App {
                     .environment(appModel)
             }
         }
-
+        
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
                 .environment(appModel)
@@ -35,6 +42,6 @@ struct kilerodeApp: App {
                     avPlayerViewModel.reset()
                 }
         }
-        .immersionStyle(selection: .constant(.progressive), in: .progressive)
+        .immersionStyle(selection: .constant(.full), in: .full)
     }
 }
