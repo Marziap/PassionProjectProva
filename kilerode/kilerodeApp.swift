@@ -17,6 +17,7 @@ struct kilerodeApp: App {
     init() {
         RealityKitContent.ObjComponent.registerComponent()
         RealityKitContent.MeteorComponent.registerComponent()
+        RealityKitContent.TimelineComponent.registerComponent()
         //call this once to register the component
     }
     

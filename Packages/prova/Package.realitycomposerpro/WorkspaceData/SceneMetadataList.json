@@ -1,0 +1,24 @@
+{
+  "2FB28FD6-6754-4EB5-BA46-3F1466D157A9" : {
+    "objectMetadataList" : [
+      [
+        "2FB28FD6-6754-4EB5-BA46-3F1466D157A9",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2FB28FD6-6754-4EB5-BA46-3F1466D157A9",
+        "Root",
+        "Skull"
+      ],
+      {
+        "disallowsFraming" : false,
+        "isExpanded" : false,
+        "isLocked" : false
+      }
+    ]
+  }
+}
