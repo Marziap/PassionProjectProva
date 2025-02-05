@@ -24,6 +24,7 @@ struct ImmersiveView: View {
     @State var subscription: EventSubscription?
     @State var thisContent: RealityViewContent?
     @State var swordAnchohor: Bool = true
+    @State var keypadModel = Entity()
     
     
     
@@ -46,12 +47,12 @@ struct ImmersiveView: View {
                 }
                 
                 if let meteor = immersiveContentEntity.findEntity(named: "Meteor"),
-                   //                   let sword = immersiveContentEntity.findEntity(named: "Sword"),
+                   let keypad = immersiveContentEntity.findEntity(named: "Keypad"),
                    let lever = immersiveContentEntity.findEntity(named: "Lever"),
                    let camera = immersiveContentEntity.findEntity(named: "Camera")
                 {
                     self.meteorModel = meteor
-                    //                    self.swordModel = sword
+                    self.keypadModel = keypad
                     self.leverModel = lever
                     self.cameraModel = camera
                 }
@@ -63,7 +64,7 @@ struct ImmersiveView: View {
                 self.session = session
                 
                 if(swordAnchohor == false){
-                    //Setup an anchor at the user's left palm.
+                    //Setup an anchor at the user's right palm.
                     let handAnchor = AnchorEntity(.hand(.right, location: .palm), trackingMode: .continuous)
                     
                     //Add the Gauntlet scene that was set up in Reality Composer Pro.
@@ -102,15 +103,6 @@ struct ImmersiveView: View {
                     }
                 }
                 
-                
-                
-                
-                
-                //                swordModel.components.set(HoverEffectComponent(.spotlight(
-                //                    HoverEffectComponent.SpotlightHoverEffectStyle(
-                //                        color: .yellow, strength: 2.0
-                //                    )
-                //                )))
                 leverModel.components.set(HoverEffectComponent(.spotlight(
                     HoverEffectComponent.SpotlightHoverEffectStyle(
                         color: .yellow, strength: 2.0
@@ -134,7 +126,6 @@ struct ImmersiveView: View {
                 if (collisionEvent.entityB.name == "Sword") {
                     print("Collision")
                     let animation = meteorModel.availableAnimations[0]
-                    let duration = animation.definition.duration  // Get the animation duration
                     meteorModel.components.remove(CollisionComponent.self)
                     
                     meteorModel.playAnimation(animation)
@@ -143,7 +134,7 @@ struct ImmersiveView: View {
                         meteorModel.isEnabled = false
                     }
                 }
-
+                
             }
             
             //            let material = PhysicsMaterialResource.generate(friction: 0.8, restitution: 0.0)
@@ -155,20 +146,9 @@ struct ImmersiveView: View {
             
         }.installGestures()
         
-            .gesture(SpatialTapGesture().targetedToEntity(where: .has(ObjComponent.self)).onEnded({ value in
-                //                tapped.toggle()
-                print("tapped")
-                //                coox = value.location3D.x
-                //                cooy = value.location3D.y
-                //                cooz = value.location3D.z
+            .gesture(SpatialTapGesture().targetedToEntity(keypadModel).onEnded({ value in
+                print("\(value.entity.name.replacingOccurrences(of: "keypad_", with: ""))")
             }))
-        
-        //            .gesture(SpatialTapGesture().targetedToEntity(where: .has(MeteorComponent.self)).onEnded({ value in
-        //                print("animate")
-        //                let animation = value.entity.availableAnimations[0]
-        //                value.entity.playAnimation(animation)
-        //
-        //            }))
         
             .gesture(
                 SpatialTapGesture()
