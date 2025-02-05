@@ -22,7 +22,6 @@ struct ImmersiveView: View {
     @State var cameraModel = Entity()
     @State var session: SpatialTrackingSession?
     @State var subscription: EventSubscription?
-    @State var thisContent: RealityViewContent?
     @State var swordAnchohor: Bool = true
     @State var keypadModel = Entity()
     
@@ -31,9 +30,7 @@ struct ImmersiveView: View {
     var body: some View {
         
         RealityView { content in
-            
-            self.thisContent = content
-            
+
             // Add the initial RealityKit content
             if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(immersiveContentEntity)
@@ -82,26 +79,17 @@ struct ImmersiveView: View {
                         }
                         
                         
+                        
                     }
                 }else{
                     let handAnchor = AnchorEntity(.hand(.right, location: .palm), trackingMode: .continuous)
-                    
-                    //Add the Gauntlet scene that was set up in Reality Composer Pro.
-                    if let swordScene = try? await Entity(named: "Sword Scene", in: realityKitContentBundle) {
-                        
-                        if let sword = swordScene.findEntity(named: "Sword"){
-                            
                             //Child the gauntlet scene to the handAnchor.
-                            handAnchor.addChild(sword)
+                            handAnchor.addChild(swordModel)
                             
                             // Add the handAnchor to the RealityView scene.
-                            content.add(handAnchor)
-                            
-                        }
-                        
-                        
+                    content.add(handAnchor)
                     }
-                }
+                
                 
                 for i in 0...11 {
                     if let entity = immersiveContentEntity.findEntity(named: "keypad_\(i)"){
