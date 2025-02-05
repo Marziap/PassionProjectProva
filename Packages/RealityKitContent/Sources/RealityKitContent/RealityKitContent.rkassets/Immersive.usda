@@ -401,6 +401,89 @@ def Xform "Root" (
         {
             uniform token info:id = "RealityKit.InputTarget"
         }
+
+        over "geom"
+        {
+            over "realistic"
+            {
+                over "materials"
+                {
+                    over "camera_dslr_realistic_opacity_text_matsg"
+                    {
+                        string inputs:file17:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (437.75, 800)
+                                }
+                            }
+                        )
+                        string inputs:file18:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (657.25, 800)
+                                }
+                            }
+                        )
+                        string inputs:file19:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (876.75, 800)
+                                }
+                            }
+                        )
+                        string inputs:file20:varname (
+                            customData = {
+                                dictionary realitykit = {
+                                    float2 positionInSubgraph = (1097.75, 800)
+                                }
+                            }
+                        )
+                        token outputs:realitykit:vertex
+                        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (1432, 286)
+
+                        over "file20_mtlx_scale"
+                        {
+                            float2 ui:nodegraph:node:pos = (622.75, 100.5)
+                        }
+
+                        over "file20_mtlx_offset"
+                        {
+                            float2 ui:nodegraph:node:pos = (892.25, 100.5)
+                        }
+
+                        over "file17_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (892.25, 441.5)
+                        }
+
+                        over "camera_dslr_realistic_opacity_text_mat_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (1162, 286)
+                        }
+
+                        over "file18_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (350, 361.5)
+                        }
+
+                        over "Lookup_st"
+                        {
+                            float2 ui:nodegraph:node:pos = (91, 391.5)
+                        }
+
+                        over "file19_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (622.75, 612)
+                        }
+
+                        over "file20_mtlx"
+                        {
+                            float2 ui:nodegraph:node:pos = (350, 100.5)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     def RealityKitTimeline "Pull_lever"
@@ -520,11 +603,16 @@ def Xform "Root" (
         references = @CC0_-_Keypad_Door_Lock.usdz@
     )
     {
-        reorder nameChildren = ["Materials", "Meshes", "Keys"]
+        reorder nameChildren = ["Materials", "Meshes", "InputTarget", "Keys"]
         quatf xformOp:orient = (0.9659258, 7.951539e-9, -0.25881904, 2.9675553e-8)
         float3 xformOp:scale = (0.05, 0.05, 0.05)
         float3 xformOp:translate = (-0.2410758, 0.70479804, -1.1564837)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
 
         def Xform "Keys" (
             active = true
@@ -538,13 +626,13 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
-                quatf xformOp:orient = (0.7071067, 7.951535e-9, 0.7071068, -2.9675563e-8)
-                float3 xformOp:scale = (1.9999995, 19.999998, 19.999996)
-                float3 xformOp:translate = (-1.796936, 2.2291174, 2.0091028)
+                quatf xformOp:orient = (0.7071067, 7.951529e-9, 0.7071068, -2.9675558e-8)
+                float3 xformOp:scale = (1.9999987, 19.999994, 19.999989)
+                float3 xformOp:translate = (-1.796938, 2.2291174, 2.0091057)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -552,12 +640,13 @@ def Xform "Root" (
                     token outputs:mtlx:surface
                     token outputs:realitykit:vertex
                     token outputs:surface.connect = </Root/Keypad/Keys/keypad_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
 
                     def Shader "DefaultSurfaceShader"
                     {
                         uniform token info:id = "UsdPreviewSurface"
                         color3f inputs:diffuseColor = (1, 1, 1)
-                        float inputs:opacity = 0
+                        float inputs:opacity = 0.1
                         float inputs:roughness = 0.75
                         token outputs:surface
                     }
@@ -585,6 +674,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_2" (
@@ -595,15 +689,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (20, 20)
                 int ui:nodegraph:node:stackingOrder = 1
-                quatf xformOp:orient = (0.7071067, 7.951541e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999993, 19.999994, 19.999992)
-                float3 xformOp:translate = (0.06362343, 2.2290754, 2.0087404)
+                quatf xformOp:orient = (0.7071067, 7.951538e-9, 0.7071068, -2.9675562e-8)
+                float3 xformOp:scale = (1.9999988, 19.999989, 19.999987)
+                float3 xformOp:translate = (0.063622475, 2.2290754, 2.0087423)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -644,6 +738,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_3" (
@@ -654,15 +753,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (40, 40)
                 int ui:nodegraph:node:stackingOrder = 2
-                quatf xformOp:orient = (0.7071067, 7.951542e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999992, 19.999994, 19.99999)
-                float3 xformOp:translate = (1.8247414, 2.2138586, 2.0086355)
+                quatf xformOp:orient = (0.7071067, 7.951539e-9, 0.7071068, -2.9675558e-8)
+                float3 xformOp:scale = (1.9999986, 19.99999, 19.999983)
+                float3 xformOp:translate = (1.8247395, 2.2138586, 2.0086393)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -703,6 +802,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_4" (
@@ -713,15 +817,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (20, 20)
                 int ui:nodegraph:node:stackingOrder = 1
-                quatf xformOp:orient = (0.7071067, 7.951541e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999993, 19.999994, 19.999992)
-                float3 xformOp:translate = (-1.7969704, 0.3348503, 2.0090532)
+                quatf xformOp:orient = (0.7071067, 7.951538e-9, 0.7071068, -2.9675562e-8)
+                float3 xformOp:scale = (1.9999988, 19.999989, 19.999987)
+                float3 xformOp:translate = (-1.7969723, 0.3348503, 2.009057)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -762,6 +866,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_5" (
@@ -772,15 +881,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (40, 40)
                 int ui:nodegraph:node:stackingOrder = 2
-                quatf xformOp:orient = (0.7071067, 7.951542e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999992, 19.999994, 19.99999)
-                float3 xformOp:translate = (0.06358528, 0.3348074, 2.0086832)
+                quatf xformOp:orient = (0.7071067, 7.951539e-9, 0.7071068, -2.9675558e-8)
+                float3 xformOp:scale = (1.9999986, 19.99999, 19.999983)
+                float3 xformOp:translate = (0.063583374, 0.3348074, 2.008687)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -821,6 +930,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_6" (
@@ -831,15 +945,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (60, 60)
                 int ui:nodegraph:node:stackingOrder = 3
                 quatf xformOp:orient = (0.7071067, 7.951538e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999989, 19.99999, 19.999989)
-                float3 xformOp:translate = (1.824707, 0.31959248, 2.008585)
+                float3 xformOp:scale = (1.9999983, 19.999985, 19.99998)
+                float3 xformOp:translate = (1.8247042, 0.31959248, 2.0085897)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -880,6 +994,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_7" (
@@ -890,15 +1009,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (20, 20)
                 int ui:nodegraph:node:stackingOrder = 1
-                quatf xformOp:orient = (0.7071067, 7.951541e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999993, 19.999994, 19.999992)
-                float3 xformOp:translate = (-1.796938, -1.4976797, 2.0091)
+                quatf xformOp:orient = (0.7071067, 7.951538e-9, 0.7071068, -2.9675562e-8)
+                float3 xformOp:scale = (1.9999988, 19.999989, 19.999987)
+                float3 xformOp:translate = (-1.796938, -1.4976807, 2.0091038)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -939,6 +1058,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_8" (
@@ -949,15 +1073,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (40, 40)
                 int ui:nodegraph:node:stackingOrder = 2
-                quatf xformOp:orient = (0.7071067, 7.951542e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999992, 19.999994, 19.99999)
-                float3 xformOp:translate = (0.06362057, -1.4977226, 2.0087376)
+                quatf xformOp:orient = (0.7071067, 7.951539e-9, 0.7071068, -2.9675558e-8)
+                float3 xformOp:scale = (1.9999986, 19.99999, 19.999983)
+                float3 xformOp:translate = (0.06361866, -1.4977226, 2.0087395)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -998,6 +1122,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_9" (
@@ -1008,15 +1137,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (60, 60)
                 int ui:nodegraph:node:stackingOrder = 3
                 quatf xformOp:orient = (0.7071067, 7.951538e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999989, 19.99999, 19.999989)
-                float3 xformOp:translate = (1.8247395, -1.5129385, 2.0086346)
+                float3 xformOp:scale = (1.9999983, 19.999985, 19.99998)
+                float3 xformOp:translate = (1.8247375, -1.5129385, 2.0086384)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -1057,6 +1186,11 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_10" (
@@ -1067,15 +1201,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
                 float2 ui:nodegraph:node:pos = (40, 40)
                 int ui:nodegraph:node:stackingOrder = 2
-                quatf xformOp:orient = (0.7071067, 7.951542e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999992, 19.999994, 19.99999)
-                float3 xformOp:translate = (-1.7969723, -3.3919477, 2.0090494)
+                quatf xformOp:orient = (0.7071067, 7.951539e-9, 0.7071068, -2.9675558e-8)
+                float3 xformOp:scale = (1.9999986, 19.99999, 19.999983)
+                float3 xformOp:translate = (-1.7969742, -3.3919487, 2.0090523)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -1116,6 +1250,75 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
+            }
+
+            def Cube "keypad_0" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                customData = {
+                    float3 rotationEulerHint = (0, 1.0471976, 0)
+                }
+            )
+            {
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double size = 0.07
+                float2 ui:nodegraph:node:pos = (60, 60)
+                int ui:nodegraph:node:stackingOrder = 3
+                quatf xformOp:orient = (0.7071067, 7.951538e-9, 0.7071068, -2.9675558e-8)
+                float3 xformOp:scale = (1.9999983, 19.999985, 19.99998)
+                float3 xformOp:translate = (0.063583374, -3.3919916, 2.008687)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Keypad/Keys/keypad_0/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (1, 1, 1)
+                        float inputs:opacity = 1
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "Collider"
+                {
+                    uint group = 1
+                    uniform token info:id = "RealityKit.Collider"
+                    uint mask = 4294967295
+                    token type = "Default"
+
+                    def RealityKitStruct "Shape"
+                    {
+                        float3 extent = (0.07, 0.07, 0.07)
+                        token shapeType = "Box"
+
+                        def RealityKitStruct "pose"
+                        {
+                        }
+                    }
+                }
+
+                def RealityKitComponent "InputTarget"
+                {
+                    uniform token info:id = "RealityKit.InputTarget"
+                }
+
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
+                {
+                    uniform token info:id = "RealityKitContent.KeyComponent"
+                }
             }
 
             def Cube "keypad_11" (
@@ -1126,15 +1329,15 @@ def Xform "Root" (
                 }
             )
             {
-                rel material:binding = </Root/Material> (
+                rel material:binding = </Root/Keypad/Keys/keypad_1/DefaultMaterial> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
                 double size = 0.07
-                float2 ui:nodegraph:node:pos = (60, 60)
-                int ui:nodegraph:node:stackingOrder = 3
-                quatf xformOp:orient = (0.7071067, 7.951538e-9, 0.7071068, -2.9675558e-8)
-                float3 xformOp:scale = (1.9999989, 19.99999, 19.999989)
-                float3 xformOp:translate = (0.06358528, -3.3919916, 2.0086842)
+                float2 ui:nodegraph:node:pos = (80, 80)
+                int ui:nodegraph:node:stackingOrder = 4
+                quatf xformOp:orient = (0.7071067, 7.95153e-9, 0.7071068, -2.9675569e-8)
+                float3 xformOp:scale = (1.9999985, 19.999985, 19.99998)
+                float3 xformOp:translate = (1.8247051, -3.4072056, 2.0085888)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
                 def Material "DefaultMaterial"
@@ -1175,71 +1378,12 @@ def Xform "Root" (
                 {
                     uniform token info:id = "RealityKit.InputTarget"
                 }
-            }
 
-            def Cube "keypad_12" (
-                active = true
-                prepend apiSchemas = ["MaterialBindingAPI"]
-                customData = {
-                    float3 rotationEulerHint = (0, 1.0471976, 0)
-                }
-            )
-            {
-                rel material:binding = </Root/Material> (
-                    bindMaterialAs = "weakerThanDescendants"
-                )
-                double size = 0.07
-                float2 ui:nodegraph:node:pos = (80, 80)
-                int ui:nodegraph:node:stackingOrder = 4
-                quatf xformOp:orient = (0.7071067, 7.951536e-9, 0.7071068, -2.9675562e-8)
-                float3 xformOp:scale = (1.9999989, 19.999989, 19.999987)
-                float3 xformOp:translate = (1.824707, -3.4072056, 2.008585)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                def Material "DefaultMaterial"
+                def RealityKitCustomComponent "RealityKitContent_KeyComponent"
                 {
-                    token outputs:mtlx:surface
-                    token outputs:realitykit:vertex
-                    token outputs:surface.connect = </Root/Keypad/Keys/keypad_12/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
-
-                    def Shader "DefaultSurfaceShader"
-                    {
-                        uniform token info:id = "UsdPreviewSurface"
-                        color3f inputs:diffuseColor = (1, 1, 1)
-                        float inputs:opacity = 1
-                        float inputs:roughness = 0.75
-                        token outputs:surface
-                    }
-                }
-
-                def RealityKitComponent "Collider"
-                {
-                    uint group = 1
-                    uniform token info:id = "RealityKit.Collider"
-                    uint mask = 4294967295
-                    token type = "Default"
-
-                    def RealityKitStruct "Shape"
-                    {
-                        float3 extent = (0.07, 0.07, 0.07)
-                        token shapeType = "Box"
-
-                        def RealityKitStruct "pose"
-                        {
-                        }
-                    }
-                }
-
-                def RealityKitComponent "InputTarget"
-                {
-                    uniform token info:id = "RealityKit.InputTarget"
+                    uniform token info:id = "RealityKitContent.KeyComponent"
                 }
             }
-        }
-
-        def RealityKitComponent "InputTarget"
-        {
-            uniform token info:id = "RealityKit.InputTarget"
         }
     }
 
@@ -1252,7 +1396,15 @@ def Xform "Root" (
         def Shader "UsdPreviewSurface"
         {
             uniform token info:id = "UsdPreviewSurface"
+            float inputs:clearcoatRoughness = 0
+            color3f inputs:diffuseColor = (0.7896221, 0.7896221, 0.7896221) (
+                colorSpace = "srgb_displayp3"
+            )
+            float inputs:ior = 0
+            normal3f inputs:normal = (0, 0, 0)
+            float inputs:occlusion = 0
             float inputs:opacity = 0
+            float inputs:roughness = 0
             token outputs:surface
         }
     }

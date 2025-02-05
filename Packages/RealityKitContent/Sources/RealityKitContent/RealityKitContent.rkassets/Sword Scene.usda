@@ -68,11 +68,14 @@ def Xform "Root"
             }
         }
 
-        def RealityKitCustomComponent "RealityKitContent_ObjComponent" (
-            active = false
-        )
+        def RealityKitCustomComponent "RealityKitContent_ObjComponent"
         {
+            bool canDrag = 0
+            bool canRotate = 0
+            bool canScale = 0
             uniform token info:id = "RealityKitContent.ObjComponent"
+            bool pivotOnDrag = 0
+            bool preserveOrientationOnPivotDrag = 0
         }
 
         def RealityKitComponent "InputTarget"

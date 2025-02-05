@@ -103,6 +103,16 @@ struct ImmersiveView: View {
                     }
                 }
                 
+                for i in 0...11 {
+                    if let entity = immersiveContentEntity.findEntity(named: "keypad_\(i)"){
+                        entity.components.set(HoverEffectComponent(.spotlight(
+                            HoverEffectComponent.SpotlightHoverEffectStyle(
+                                color: .yellow, strength: 2.0
+                            )
+                        )))
+                    }
+                }
+                
                 leverModel.components.set(HoverEffectComponent(.spotlight(
                     HoverEffectComponent.SpotlightHoverEffectStyle(
                         color: .yellow, strength: 2.0
