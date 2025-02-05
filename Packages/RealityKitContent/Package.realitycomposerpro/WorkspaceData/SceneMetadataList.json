@@ -1,4 +1,16 @@
 {
+  "070EB590-A177-4FD0-BAC6-7B2A8737847A" : {
+    "objectMetadataList" : [
+      [
+        "070EB590-A177-4FD0-BAC6-7B2A8737847A",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "9B408932-87BF-45D1-9AB5-CCFCDCF9CCD2" : {
     "objectMetadataList" : [
       [
@@ -16,7 +28,17 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Exploding_meteor",
+        "SkyDome"
+      ],
+      {
+        "disallowsFraming" : true,
+        "isExpanded" : false,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Push_lever",
         "Track"
       ],
       {
@@ -26,8 +48,22 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Sword",
-        "Materials"
+        "Sci_Fi_Sword",
+        "Meshes",
+        "Sketchfab_model",
+        "root",
+        "GLTF_SceneRootNode",
+        "Sword_0"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Exploding_meteor_1",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -37,7 +73,8 @@
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
         "Skull",
-        "geom"
+        "geom",
+        "realistic"
       ],
       {
         "isExpanded" : true,
@@ -47,7 +84,7 @@
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
         "Sci_Fi_Sword",
-        "Meshes"
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -56,9 +93,17 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Sword",
-        "Meshes",
-        "Sketchfab_model"
+        "Push_lever"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "lever_pull",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -77,18 +122,11 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Meteor_explosion_1",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sci_Fi_Sword",
-        "Materials"
+        "Sword",
+        "Meshes",
+        "Sketchfab_model",
+        "root",
+        "GLTF_SceneRootNode"
       ],
       {
         "isExpanded" : true,
@@ -119,6 +157,125 @@
       },
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sword",
+        "Meshes",
+        "Sketchfab_model"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sci_Fi_Sword",
+        "Meshes",
+        "Sketchfab_model"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Skull",
+        "geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sci_Fi_Sword",
+        "Meshes",
+        "Sketchfab_model",
+        "root",
+        "GLTF_SceneRootNode"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Skull",
+        "geom",
+        "realistic",
+        "materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Meteor_explosion_1",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Exploding_meteor",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sci_Fi_Sword",
+        "Meshes"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Timeline",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Sword_Billboard",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
+        "Root",
+        "Skull",
+        "geom",
+        "realistic",
+        "geo"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root"
       ],
       {
@@ -141,115 +298,6 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "SkyDome"
-      ],
-      {
-        "disallowsFraming" : true,
-        "isExpanded" : false,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sci_Fi_Sword",
-        "Meshes",
-        "Sketchfab_model",
-        "root",
-        "GLTF_SceneRootNode"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Timeline",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Exploding_meteor_1",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Skull",
-        "geom",
-        "realistic"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sword_Billboard",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sword",
-        "Meshes",
-        "Sketchfab_model",
-        "root",
-        "GLTF_SceneRootNode"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sword",
-        "Meshes"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Skull",
-        "geom",
-        "realistic",
-        "geo"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Push_lever",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
         "Sword",
         "Meshes",
         "Sketchfab_model",
@@ -262,42 +310,8 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Sci_Fi_Sword",
-        "Meshes",
-        "Sketchfab_model"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Sci_Fi_Sword",
-        "Meshes",
-        "Sketchfab_model",
-        "root",
-        "GLTF_SceneRootNode",
-        "Sword_0"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "Push_lever"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
-        "Root",
-        "lever_pull",
-        "Track"
+        "Sword",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -320,10 +334,8 @@
       [
         "C6A7F375-BFE9-46E0-9EA6-1A6B150F43FD",
         "Root",
-        "Skull",
-        "geom",
-        "realistic",
-        "materials"
+        "Sword",
+        "Meshes"
       ],
       {
         "isExpanded" : true,

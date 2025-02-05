@@ -1,0 +1,84 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.60.4)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "Sword" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (3.1415927, 3.054326, -0.20709324)
+        }
+        references = @Sci-Fi_Sword.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.103263415, -0.0433857, 0.0045086164, 0.99369717)
+        float3 xformOp:scale = (0.00016991545, 0.00016991545, 0.00016991545)
+        float3 xformOp:translate = (-0.045996204, 0.02459538, -0.006578695)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (4944.757, 299.99994, 164.302)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (1429.0991, 2.0873184, 0)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool isCCDEnabled = 0
+            float linearDamping = 0.0001
+            token motionType = "Static"
+
+            def RealityKitStruct "massFrame"
+            {
+                float3 m_inertia = (0, 0, 0)
+                float m_mass = 0.001
+
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+                double dynamicFriction = 0.6
+                double restitution = 0.6
+                double staticFriction = 0.8
+            }
+        }
+
+        def RealityKitCustomComponent "RealityKitContent_ObjComponent" (
+            active = false
+        )
+        {
+            uniform token info:id = "RealityKitContent.ObjComponent"
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+    }
+}
+

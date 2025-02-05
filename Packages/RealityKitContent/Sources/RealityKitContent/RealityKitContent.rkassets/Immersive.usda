@@ -5,9 +5,14 @@
     upAxis = "Y"
 )
 
-def Xform "Root"
+def Xform "Root" (
+    customData = {
+        float3 rotationEulerHint = (0, 1.0644034, 0)
+    }
+)
 {
     reorder nameChildren = ["scene", "SpotLight", "Cube", "Meteor", "Lever", "Sword", "Camera", "Pull_lever", "Push_lever"]
+    quatf xformOp:orient = (0.8616919, 0, 0.5074318, 0)
     float3 xformOp:scale = (1, 1, 1)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
@@ -332,74 +337,6 @@ def Xform "Root"
         }
     }
 
-    def "Sword" (
-        active = true
-        references = @Sci-Fi_Sword.usdz@
-    )
-    {
-        float3 xformOp:scale = (0.0001, 0.0001, 0.0001)
-        float3 xformOp:translate = (0.53571504, 0.17634338, -0.0116862655)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        def RealityKitComponent "Collider"
-        {
-            uint group = 1
-            uniform token info:id = "RealityKit.Collider"
-            uint mask = 4294967295
-            token type = "Default"
-
-            def RealityKitStruct "Shape"
-            {
-                float3 extent = (4944.757, 299.99994, 164.302)
-                token shapeType = "Box"
-
-                def RealityKitStruct "pose"
-                {
-                    float3 position = (1429.0991, 2.0873184, 0)
-                }
-            }
-        }
-
-        def RealityKitComponent "RigidBody"
-        {
-            uniform token info:id = "RealityKit.RigidBody"
-            float linearDamping = 0.0001
-
-            def RealityKitStruct "massFrame"
-            {
-                float3 m_inertia = (0, 0, 0)
-                float m_mass = 0.001
-
-                def RealityKitStruct "m_pose"
-                {
-                }
-            }
-
-            def RealityKitStruct "material"
-            {
-                double dynamicFriction = 0.6
-                double restitution = 0.6
-                double staticFriction = 0.8
-            }
-        }
-
-        def RealityKitComponent "Billboard"
-        {
-            float blendFactor = 0
-            uniform token info:id = "RealityKit.Billboard"
-        }
-
-        def RealityKitCustomComponent "RealityKitContent_ObjComponent"
-        {
-            uniform token info:id = "RealityKitContent.ObjComponent"
-        }
-
-        def RealityKitComponent "InputTarget"
-        {
-            uniform token info:id = "RealityKit.InputTarget"
-        }
-    }
-
     def "Camera" (
         active = true
         customData = {
@@ -505,6 +442,73 @@ def Xform "Root"
                 {
                 }
             }
+        }
+    }
+
+    def "Sword" (
+        references = @Sci-Fi_Sword.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.0001, 0.0001, 0.0001)
+        float3 xformOp:translate = (0.53571504, 0.17634338, -0.0116862655)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (4944.757, 299.99994, 164.302)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (1429.0991, 2.0873184, 0)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            uniform token info:id = "RealityKit.RigidBody"
+            float linearDamping = 0.0001
+
+            def RealityKitStruct "massFrame"
+            {
+                float3 m_inertia = (0, 0, 0)
+                float m_mass = 0.001
+
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+                double dynamicFriction = 0.6
+                double restitution = 0.6
+                double staticFriction = 0.8
+            }
+        }
+
+        def RealityKitComponent "Billboard"
+        {
+            float blendFactor = 0
+            uniform token info:id = "RealityKit.Billboard"
+        }
+
+        def RealityKitCustomComponent "RealityKitContent_ObjComponent"
+        {
+            uniform token info:id = "RealityKitContent.ObjComponent"
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
         }
     }
 }
